@@ -44,3 +44,9 @@ app.*.map.json
 
 # FVM Version Cache
 .fvm/
+
+# URLs
+.env
+/lib/presentation/config/env.dart
+*.g.dart
+get_todo
