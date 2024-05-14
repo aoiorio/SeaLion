@@ -1,5 +1,4 @@
 // It must be independent!!! as an Entity
-import 'package:freezed_annotation/freezed_annotation.dart';
 
 class TodoEntity {
   final String title;

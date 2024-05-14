@@ -48,6 +48,7 @@ dependencies:
   flutter_hooks: ^0.20.5
   riverpod_generator: ^2.4.0
 
+  riverpod_annotation: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
