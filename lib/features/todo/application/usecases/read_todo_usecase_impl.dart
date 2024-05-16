@@ -13,7 +13,6 @@ class ReadTodoUseCaseImpl implements ReadTodoUseCase {
   @override
   Future<List<TodoModel>> executeReadAllTodos() async {
     final todos = await _readTodoRepositoryImpl.readAllTodos();
-    print('this is in read_todo_usecase_impl.dart dani');
     return todos;
   }
 

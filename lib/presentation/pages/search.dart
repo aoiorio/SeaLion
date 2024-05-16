@@ -1,13 +1,18 @@
-import 'dart:io';
-
-import 'package:avatar_glow/avatar_glow.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+// packages
+import 'package:flutter/services.dart';
 import 'package:sealion/features/todo/application/providers/read_todo/read_specific_todo.dart';
-import 'package:sealion/features/todo/model/todo_request_body.dart';
+import 'package:avatar_glow/avatar_glow.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:speech_to_text/speech_to_text.dart';
+
+// models
+import 'package:sealion/features/todo/model/todo_request_body.dart';
+
+// providers
+import '../../features/todo/application/providers/delete_todo/delete_todo.dart';
 import '../../features/todo/update_todo/infrastructure/providers/update_todo.dart';
 
 // this provider is for updating todoId
@@ -57,6 +62,7 @@ class SearchPage extends ConsumerStatefulWidget {
 class SearchPageState extends ConsumerState<SearchPage> {
   // it'll be my speech text that I spoke
   SpeechToText speechToText = SpeechToText();
+  bool isComplete = false;
 
   // NOTE set todoId for fetching a specific todo by using
   setTodoId(WidgetRef ref, int todoId) {
@@ -64,7 +70,6 @@ class SearchPageState extends ConsumerState<SearchPage> {
     notifier.state = todoId;
   }
 
-  bool isComplete = false;
   @override
   Widget build(BuildContext context) {
     // ! DO NOT write like this: todoValue = ref.watch(isDoneCheckProvider.notifier).state because it won't work correctly!!!!
@@ -170,6 +175,8 @@ class SearchPageState extends ConsumerState<SearchPage> {
           },
           loading: () => const CircularProgressIndicator(),
         );
+
+    // NOTE widgets that will display on the screenscreen
     return Scaffold(
       appBar: AppBar(
         title: const Text("SeaLion"),
@@ -241,18 +248,28 @@ class SearchPageState extends ConsumerState<SearchPage> {
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: ElevatedButton(
-                    onPressed: () {
-                      ref.watch(updateTodoUseCaseProvider).executeUpdateTodo(
-                            todoId: ref.watch(todoIdProvider.notifier).state,
-                            todoRequestBody: TodoRequestBody(
-                              title: titleController.text,
-                              description: descriptionController.text,
-                              priority: int.parse(priorityController.text),
-                              // NOTE for avoiding sending wrong value (もし、checkboxを何も操作しないでその時のdbから持ってきた値がtrueだった場合、リセットされないようにtrueを返す。)
-                              complete: isComplete && ref.watch(initValue) == 0 ? true :ref.watch(isDoneCheckProvider),
-                            ),
-                          );
-                    },
+                    onPressed: todo.runtimeType == Text ||
+                            todo.runtimeType == CircularProgressIndicator
+                        ? null
+                        : () {
+                            ref
+                                .watch(updateTodoUseCaseProvider)
+                                .executeUpdateTodo(
+                                  todoId:
+                                      ref.watch(todoIdProvider.notifier).state,
+                                  todoRequestBody: TodoRequestBody(
+                                    title: titleController.text,
+                                    description: descriptionController.text,
+                                    priority:
+                                        int.parse(priorityController.text),
+                                    // NOTE for avoiding sending wrong value (もし、checkboxを何も操作しないでその時のdbから持ってきた値がtrueだった場合、リセットされないようにtrueを返す。)
+                                    complete:
+                                        isComplete && ref.watch(initValue) == 0
+                                            ? true
+                                            : ref.watch(isDoneCheckProvider),
+                                  ),
+                                );
+                          },
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.transparent,
                       surfaceTintColor: Colors.transparent,
@@ -266,13 +283,24 @@ class SearchPageState extends ConsumerState<SearchPage> {
                   width: 50,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  // NOTE if todo widget is loading or todo not found Text, button will be null.
+                  onPressed: todo.runtimeType == Text ||
+                          todo.runtimeType == CircularProgressIndicator
+                      ? null
+                      : () async {
+                        // NOTE execute deleteTodo function through provider
+                          ref.read(deleteTodoProvider);
+                          // NOTE for initializing todo deleted
+                          // FIXME - fix it??
+                          // STUB - I think I should do error handling when I develop actual project.
+                          ref.watch(todoIdProvider.notifier).state = 0;
+                        },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: const Color.fromARGB(255, 214, 95, 95),
                     foregroundColor: Colors.white,
                   ),
                   child: const Text('Delete Todo'),
-                )
+                ),
               ],
             ),
             SizedBox(

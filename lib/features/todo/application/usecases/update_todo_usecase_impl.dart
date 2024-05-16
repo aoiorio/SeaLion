@@ -10,12 +10,8 @@ class UpdateTodoUseCaseImpl implements UpdateTodoUseCase {
   @override
   Future<String> executeUpdateTodo(
       {required int todoId, required TodoRequestBody todoRequestBody}) async {
-    try {
-      await _updateTodoRepositoryImpl.updateTodo(
-          todoId: todoId, todoRequestBody: todoRequestBody);
-      return 'success';
-    } catch (e) {
-      return e.toString();
-    }
+    final res = await _updateTodoRepositoryImpl.updateTodo(
+        todoId: todoId, todoRequestBody: todoRequestBody);
+    return res;
   }
 }
