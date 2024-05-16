@@ -7,32 +7,6 @@ import '../../../../../presentation/pages/search.dart';
 
 part 'read_specific_todo.g.dart';
 
-// @riverpod
-// class ReadSpecificTodo extends _$ReadSpecificTodo {
-//   @override
-//   FutureOr<List<TodoModel>> build() {
-//     // final usecase = ref.watch(readTodoUseCaseProvider);
-//     // final todo = await usecase.executeReadSpecificTodo(todoId: todoId);
-//     // return todo;
-//     // final usecase = ref.watch(readTodoUseCaseProvider);
-//     // final todo = await usecase.executeReadSpecificTodo(todoId: todoId);
-//     // return [todo];
-//     return Future(() => []);
-//   }
-
-//   FutureOr<List<TodoModel>> readSpecificTodo(int todoId) async {
-//     final usecase = ref.watch(readTodoUseCaseProvider);
-//     final TodoModel todo = await usecase.executeReadSpecificTodo(todoId: todoId);
-//     return [todo];
-//   }
-//   // state.add(..value)
-//   // Future<TodoModel> readSpecificTodo(int todoId) async {
-//   //   final usecase = ref.watch(readTodoUseCaseProvider);
-//   //   final todo = await usecase.executeReadSpecificTodo(todoId: todoId);
-//   //   return todo;
-//   // }
-// }
-
 @riverpod
 FutureOr<TodoModel> readSpecificTodo(Ref ref) async {
   final usecase = ref.watch(readTodoUseCaseProvider);
