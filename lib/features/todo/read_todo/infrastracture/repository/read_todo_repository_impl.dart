@@ -13,7 +13,6 @@ class ReadTodoRepositoryImpl implements ReadTodoRepository {
   // I must use TodoModel instead of TodoEntity because TodoEntity must be independent
   @override
   Future<List<TodoModel>> readAllTodos() async {
-    print('this is in read_todo_repository_impl.dart');
     final res = await _readTodoDataSource.readAllTodos();
     try {
       if (res.response.statusCode == 200) {
