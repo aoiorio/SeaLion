@@ -49,6 +49,9 @@ dependencies:
   riverpod_generator: ^2.4.0
 
   riverpod_annotation: any
+  speech_to_text: ^6.6.1
+  avatar_glow: ^3.0.1
+  json_annotation: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
