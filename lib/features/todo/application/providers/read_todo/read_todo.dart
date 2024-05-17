@@ -1,7 +1,7 @@
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:sealion/features/todo/model/todo_model.dart';
+import 'package:sealion/features/todo/models/todo_model.dart';
 import 'package:sealion/features/todo/read_todo/infrastracture/providers/read_todos.dart';
-// TODO make sure to grasp every thing of what the Riverpod is!!!
+// DONE make sure to grasp every thing of what the Riverpod is!!!
 
 part 'read_todo.g.dart';
 
@@ -17,4 +17,4 @@ class ReadTodo extends _$ReadTodo {
   // これ絶対にやり方が違う気がします隊長！！！！me tooooooo!!!!!
 }
 
-// TODO add function for implementing reading specific todo!!
+// DONE add function for implementing reading specific todo!!

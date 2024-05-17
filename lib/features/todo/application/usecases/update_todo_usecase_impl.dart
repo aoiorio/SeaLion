@@ -1,4 +1,4 @@
-import 'package:sealion/features/todo/model/todo_request_body.dart';
+import 'package:sealion/features/todo/models/todo_request_body.dart';
 import 'package:sealion/features/todo/update_todo/infrastructure/repository/update_todo_repository_impl.dart';
 
 import '../../update_todo/domain/usecases/update_todo_usecase.dart';

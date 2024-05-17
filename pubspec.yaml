@@ -52,6 +52,7 @@ dependencies:
   speech_to_text: ^6.6.1
   avatar_glow: ^3.0.1
   json_annotation: any
+  wtf_rotary_dial: ^0.1.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

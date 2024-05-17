@@ -741,6 +741,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.4.0"
+  wtf_rotary_dial:
+    dependency: "direct main"
+    description:
+      name: wtf_rotary_dial
+      sha256: "2f428512e4cc4a679945ab290c320a3ba97e1cd4d3ab823c313248204167d279"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.1.0"
   yaml:
     dependency: transitive
     description:

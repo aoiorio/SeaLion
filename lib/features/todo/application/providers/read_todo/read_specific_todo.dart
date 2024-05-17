@@ -1,5 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:sealion/features/todo/model/todo_model.dart';
+import 'package:sealion/features/todo/models/todo_model.dart';
 import 'package:sealion/features/todo/read_todo/infrastracture/providers/read_todos.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
