@@ -1,4 +1,4 @@
-import 'package:sealion/features/todo/model/todo_request_body.dart';
+import 'package:sealion/features/todo/models/todo_request_body.dart';
 
 
 // ! this file must be independent

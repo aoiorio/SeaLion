@@ -1,4 +1,4 @@
-import 'package:sealion/features/todo/model/todo_model.dart';
+import 'package:sealion/features/todo/models/todo_model.dart';
 import 'package:retrofit/retrofit.dart';
 import 'package:dio/dio.dart';
 

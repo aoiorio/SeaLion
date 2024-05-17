@@ -1,4 +1,4 @@
-import 'package:sealion/features/todo/model/todo_model.dart';
+import 'package:sealion/features/todo/models/todo_model.dart';
 import 'package:sealion/features/todo/read_todo/domain/repositories/read_todo_repository.dart';
 import 'package:sealion/features/todo/read_todo/infrastracture/datasources/read_all_todos_data_source.dart';
 import 'package:sealion/presentation/resources/data_state.dart';
