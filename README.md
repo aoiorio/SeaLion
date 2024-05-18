@@ -43,22 +43,6 @@
                         └── delete_todo_repository_impl.dart
             └── 📁entity
                 └── todo_entity.dart
-            └── 📁get_todo
-                └── 📁application
-                    └── 📁usecases
-                        └── get_specific_todo_usecase_impl.dart
-                        └── get_todo_usecase_impl.dart
-                └── 📁domain
-                    └── get_todo_repository_interface.dart
-                    └── 📁usecases
-                        └── get_specific_todo_usecase.dart
-                        └── get_todo_usecase.dart
-                └── 📁infrastructure
-                    └── 📁datasources
-                        └── get_specific_todo_data_source.dart
-                        └── get_todo_data_source_impl.dart
-                    └── 📁repositories
-                        └── get_todo_repository_impl.dart
             └── 📁models
                 └── todo_model.dart
                 └── todo_request_body.dart
